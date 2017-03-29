@@ -1,0 +1,10 @@
+C:\Users\xuant\onedrive\documents\visual studio 2015\Projects\Demostudyweb\Model\bin\Debug\Model.dll.config
+C:\Users\xuant\onedrive\documents\visual studio 2015\Projects\Demostudyweb\Model\bin\Debug\Model.dll
+C:\Users\xuant\onedrive\documents\visual studio 2015\Projects\Demostudyweb\Model\bin\Debug\Model.pdb
+C:\Users\xuant\onedrive\documents\visual studio 2015\Projects\Demostudyweb\Model\bin\Debug\EntityFramework.dll
+C:\Users\xuant\onedrive\documents\visual studio 2015\Projects\Demostudyweb\Model\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\xuant\onedrive\documents\visual studio 2015\Projects\Demostudyweb\Model\bin\Debug\EntityFramework.xml
+C:\Users\xuant\onedrive\documents\visual studio 2015\Projects\Demostudyweb\Model\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\xuant\onedrive\documents\visual studio 2015\Projects\Demostudyweb\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+C:\Users\xuant\onedrive\documents\visual studio 2015\Projects\Demostudyweb\Model\obj\Debug\Model.dll
+C:\Users\xuant\onedrive\documents\visual studio 2015\Projects\Demostudyweb\Model\obj\Debug\Model.pdb
