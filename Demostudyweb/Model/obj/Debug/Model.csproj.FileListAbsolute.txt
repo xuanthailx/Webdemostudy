@@ -8,3 +8,13 @@ C:\Users\xuant\onedrive\documents\visual studio 2015\Projects\Demostudyweb\Model
 C:\Users\xuant\onedrive\documents\visual studio 2015\Projects\Demostudyweb\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
 C:\Users\xuant\onedrive\documents\visual studio 2015\Projects\Demostudyweb\Model\obj\Debug\Model.dll
 C:\Users\xuant\onedrive\documents\visual studio 2015\Projects\Demostudyweb\Model\obj\Debug\Model.pdb
+D:\Git\Webdemostudy\Demostudyweb\Model\bin\Debug\Model.dll.config
+D:\Git\Webdemostudy\Demostudyweb\Model\bin\Debug\Model.dll
+D:\Git\Webdemostudy\Demostudyweb\Model\bin\Debug\Model.pdb
+D:\Git\Webdemostudy\Demostudyweb\Model\bin\Debug\EntityFramework.dll
+D:\Git\Webdemostudy\Demostudyweb\Model\bin\Debug\EntityFramework.SqlServer.dll
+D:\Git\Webdemostudy\Demostudyweb\Model\bin\Debug\EntityFramework.xml
+D:\Git\Webdemostudy\Demostudyweb\Model\bin\Debug\EntityFramework.SqlServer.xml
+D:\Git\Webdemostudy\Demostudyweb\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+D:\Git\Webdemostudy\Demostudyweb\Model\obj\Debug\Model.dll
+D:\Git\Webdemostudy\Demostudyweb\Model\obj\Debug\Model.pdb
