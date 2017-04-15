@@ -165,5 +165,3 @@ D:\Git\Webdemostudy\Demostudyweb\Demostudyweb\bin\Microsoft.Owin.Security.Micros
 D:\Git\Webdemostudy\Demostudyweb\Demostudyweb\obj\Debug\Demostudyweb.csprojResolveAssemblyReference.cache
 D:\Git\Webdemostudy\Demostudyweb\Demostudyweb\obj\Debug\Demostudyweb.dll
 D:\Git\Webdemostudy\Demostudyweb\Demostudyweb\obj\Debug\Demostudyweb.pdb
-D:\Git\Webdemostudy\Demostudyweb\Demostudyweb\bin\Demostudyweb.dll.config
-D:\Git\Webdemostudy\Demostudyweb\Demostudyweb\bin\Model.dll.config
