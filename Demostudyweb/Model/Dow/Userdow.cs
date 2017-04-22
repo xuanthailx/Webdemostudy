@@ -1,44 +1,80 @@
 ﻿using Model.EF;
 using System;
+using System.Collections.Generic;
 using System.Linq;
-
+using PagedList;
 namespace model.Dow
 {
     public class Userdow
     {
-        DemowebdbContext db = null;
+        OnLinewebDbContext db = null;
         public Userdow()
         {
-            db = new DemowebdbContext();
+            db = new OnLinewebDbContext();
         }
         public long Insert(User entity)
         {
             db.Users.Add(entity);
             db.SaveChanges();
-            return entity.Id;
+            return entity.ID;
         }
-        public User GetByID(string userName)
+        public bool Update(User entity)
         {
-            return db.Users.SingleOrDefault(x=>x.Username == userName);
+            try {
+                var user = db.Users.Find(entity.ID);
+                user.Email = entity.Email;
+                if (!String.IsNullOrEmpty(entity.Password))
+                {
+                    user.Password = entity.Password;
+                }
+                user.Role = entity.Role;
+                //user.ModifiedDate = DateTime.Now;
+                db.SaveChanges();
+                return true;
+            }
+            catch(Exception ex)
+            {
+                return false;
+            }
+
+           
+        }
+
+        public IEnumerable<User> ListAllPaging(string searchString,int page, int pageSize)
+        {
+            IQueryable<User> model = db.Users;
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                model = model.Where(x => x.Email.Contains(searchString));
+            }
+            return model.OrderByDescending(x => x.ID).ToPagedList(page ,pageSize);
+        }
+        public User GetByID(string email)
+        {
+            return db.Users.SingleOrDefault(x=>x.Email == email);
 
         }
-
-        public int login(String userName, String password)
+        public User ViewDetail(int id)
         {
-            var result = db.Users.SingleOrDefault(x => x.Username == userName );
+            return db.Users.SingleOrDefault(x => x.ID == id);
+        }
+        public int login(String email, String password)
+        {
+            var result = db.Users.SingleOrDefault(x => x.Email == email );
             if (result == null)
             {
                 return 0;
             }
             else
             {
-                if(result.Status == false)
+                if(result.Status == "0") 
                 {
                     return -1;
                 }
                 else
                 {
-                    if (result.Password == password) return 1;
+                    if (result.Password == password)
+                        return 1;
                     else return -2;
                 }
             }
@@ -47,6 +83,19 @@ namespace model.Dow
         public object GetuserID(string userName)
         {
             throw new NotImplementedException();
+        }
+        public bool Delete(int id)
+        {
+           try
+            {
+                var user = db.Users.Find(id);
+                db.Users.Remove(user);
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception ex) {
+                return false;   
+            }
         }
     }
 }
