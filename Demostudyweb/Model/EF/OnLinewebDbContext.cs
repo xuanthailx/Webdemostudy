@@ -63,8 +63,7 @@ namespace Model.EF
                 .HasPrecision(0);
 
             modelBuilder.Entity<Student>()
-                .Property(e => e.CheckIn)
-                .IsFixedLength();
+                .Property(e => e.CheckIn);
 
             modelBuilder.Entity<Student>()
                 .HasMany(e => e.Participates)

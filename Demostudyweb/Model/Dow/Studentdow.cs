@@ -8,7 +8,7 @@ using PagedList;
 
 namespace Model.Dow
 {
-    class Studentdow
+    public class Studentdow
     {
         OnLinewebDbContext db = null;
         public Studentdow()
