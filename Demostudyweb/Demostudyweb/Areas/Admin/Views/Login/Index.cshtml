@@ -52,7 +52,7 @@
                                 </div>
                             </div>
                             @Html.ValidationSummary(false, "",new {@class="text-danger" })
-                            @Html.TextBoxFor(model=>model.UserName,new { @class="form-control",@autofocus="autofocus"})
+                            @Html.TextBoxFor(model=>model.eMail,new { @class="form-control",@autofocus="autofocus"})
                             @Html.PasswordFor(model => model.PassWord, new { @class = "form-control", @autofocus = "autofocus" })                  
                             <div class="action">
                                 <button class="btn btn-primary btn-sm"type="submit">Login</button>

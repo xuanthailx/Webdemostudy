@@ -1,44 +1,70 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
+    <title>Bootstrap Admin Theme v3</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - QLHT</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <!-- Bootstrap -->
+    <link href="/assets/admin/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- styles -->
+    <link href="/assets/admin/css/styles.css" rel="stylesheet">
 
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
+  @RenderPage("_Header.cshtml")
+
+    <div class="page-content">
+        <div class="row">
+            @RenderPage("_Menu.cshtml")
+            <div class="col-md-10">
+
+                <div class="row">
+                    <div class="col-md-12 panel-warning">
+                        <div class="content-box-header panel-heading">
+                            <div class="panel-title ">@RenderSection("header", required: true)</div>
+
+                            <div class="panel-options">
+                                <a href="#" data-rel="collapse"><i class="glyphicon glyphicon-refresh"></i></a>
+                                <a href="#" data-rel="reload"><i class="glyphicon glyphicon-cog"></i></a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                @if (TempData["AlertMessage"] != null)
+                {
+                    <div id="AlertBox" class="alert @TempData["AlertType"] hide ">
+                        @TempData["AlertMessage"]
+                    </div>
+                }
+
+                @RenderBody();
+
             </div>
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    <footer>
+        <div class="container">
+
+            <div class="copy text-center">
+                Copyright 2014 <a href='#'>Website</a>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/assets/admin/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/admin/js/custom.js"></script>
 </body>
 </html>

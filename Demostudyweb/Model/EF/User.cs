@@ -9,30 +9,20 @@ namespace Model.EF
     [Table("User")]
     public partial class User
     {
-        public long Id { get; set; }
-
-        [StringLength(50)]
-        public string Username { get; set; }
-
-        [StringLength(50)]
-        public string Password { get; set; }
-
-        [StringLength(50)]
-        public string Name { get; set; }
-
-        [StringLength(50)]
-        public string Address { get; set; }
-
-        [StringLength(50)]
+        [Required]
+        [StringLength(100)]
         public string Email { get; set; }
 
-        public int? Phone { get; set; }
+        public string Password { get; set; }
 
-        public DateTime? CreatedDate { get; set; }
+        [StringLength(1)]
+        public string Role { get; set; }
 
-        [StringLength(50)]
-        public string CreatedBy { get; set; }
+        [StringLength(1)]
+        public string Status { get; set; }
 
-        public bool? Status { get; set; }
+        public long ID { get; set; }
+
+        public virtual Email Email1 { get; set; }
     }
 }

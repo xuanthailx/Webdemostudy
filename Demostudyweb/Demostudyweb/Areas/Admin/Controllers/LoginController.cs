@@ -22,13 +22,13 @@ namespace Demostudyweb.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 var dow = new Userdow();
-                var result = dow.login(model.UserName, model.PassWord);
+                var result = dow.login(model.eMail, Encryptor.MD5Hash(model.PassWord));
                 if (result == 1)
                 {
-                    var user = dow.GetByID(model.UserName);
+                    var user = dow.GetByID(model.eMail);
                     var userSession = new UserLogin();
-                    userSession.UserName = user.Username;
-                    userSession.UserID = user.Id;
+                    userSession.UserName = user.Email;
+                    userSession.UserID = user.ID;
                     Session.Add(Commoncontent.USER_SESSION , userSession);
                     return RedirectToAction("Index", "Home");
                 }
