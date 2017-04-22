@@ -26,7 +26,7 @@ namespace Model.EF
         public virtual DbSet<Time> Times { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Budget> Budgets { get; set; }
-        public virtual DbSet<Participate> Participates { get; set; }
+        public virtual DbSet<TeamDetail> TeamDetails { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -48,8 +48,18 @@ namespace Model.EF
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Game>()
-                .HasMany(e => e.Participates)
+                .HasMany(e => e.Budgets)
                 .WithRequired(e => e.Game)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Game>()
+                .HasMany(e => e.MatchUps)
+                .WithRequired(e => e.Game)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Location>()
+                .HasMany(e => e.MatchUps)
+                .WithRequired(e => e.Location)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Major>()
@@ -58,26 +68,29 @@ namespace Model.EF
                 .HasForeignKey(e => e.Major)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<MatchUp>()
-                .Property(e => e.Time)
-                .HasPrecision(0);
-
             modelBuilder.Entity<Student>()
-                .Property(e => e.CheckIn);
-
-            modelBuilder.Entity<Student>()
-                .HasMany(e => e.Participates)
+                .HasMany(e => e.TeamDetails)
                 .WithRequired(e => e.Student)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Time>()
-                .Property(e => e.Time1)
-                .HasPrecision(0);
+            modelBuilder.Entity<Team>()
+                .HasMany(e => e.MatchUps)
+                .WithOptional(e => e.Team)
+                .HasForeignKey(e => e.Team1);
+
+            modelBuilder.Entity<Team>()
+                .HasMany(e => e.MatchUps1)
+                .WithOptional(e => e.Team3)
+                .HasForeignKey(e => e.Team2);
+
+            modelBuilder.Entity<Team>()
+                .HasMany(e => e.TeamDetails)
+                .WithRequired(e => e.Team)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Time>()
                 .HasMany(e => e.MatchUps)
-                .WithRequired(e => e.Time1)
-                .HasForeignKey(e => e.Time)
+                .WithRequired(e => e.Time)
                 .WillCascadeOnDelete(false);
         }
     }

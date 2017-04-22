@@ -72,10 +72,10 @@
     <Compile Include="EF\Major.cs" />
     <Compile Include="EF\MatchUp.cs" />
     <Compile Include="EF\OnLinewebDbContext.cs" />
-    <Compile Include="EF\Participate.cs" />
     <Compile Include="EF\Student.cs" />
     <Compile Include="EF\sysdiagram.cs" />
     <Compile Include="EF\Team.cs" />
+    <Compile Include="EF\TeamDetail.cs" />
     <Compile Include="EF\Time.cs" />
     <Compile Include="EF\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -14,11 +14,11 @@ namespace Model.EF
         [Column(TypeName = "date")]
         public DateTime Date { get; set; }
 
-        public TimeSpan Time { get; set; }
+        public int TimeID { get; set; }
 
-        [Required]
-        [StringLength(50)]
-        public string Location { get; set; }
+        public TimeSpan? StartTime { get; set; }
+
+        public int LocationID { get; set; }
 
         public int GameID { get; set; }
 
@@ -32,6 +32,14 @@ namespace Model.EF
 
         public int? TeamWin { get; set; }
 
-        public virtual Time Time1 { get; set; }
+        public virtual Game Game { get; set; }
+
+        public virtual Location Location { get; set; }
+
+        public virtual Team Team { get; set; }
+
+        public virtual Team Team3 { get; set; }
+
+        public virtual Time Time { get; set; }
     }
 }

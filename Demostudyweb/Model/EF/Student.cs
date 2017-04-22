@@ -12,11 +12,9 @@ namespace Model.EF
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Student()
         {
-            Classes = new HashSet<Class>();
-            Participates = new HashSet<Participate>();
+            TeamDetails = new HashSet<TeamDetail>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ID { get; set; }
 
         [Required]
@@ -28,18 +26,16 @@ namespace Model.EF
 
         public int Gender { get; set; }
 
-        [StringLength(10)]
-        public int CheckIn { get; set; }
-
         [StringLength(100)]
         public string Email { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Class> Classes { get; set; }
+        public int? ClassID { get; set; }
+
+        public virtual Class Class { get; set; }
 
         public virtual Email Email1 { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Participate> Participates { get; set; }
+        public virtual ICollection<TeamDetail> TeamDetails { get; set; }
     }
 }

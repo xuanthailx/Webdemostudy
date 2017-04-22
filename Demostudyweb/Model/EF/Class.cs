@@ -12,6 +12,7 @@ namespace Model.EF
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Class()
         {
+            Students = new HashSet<Student>();
             Teams = new HashSet<Team>();
         }
 
@@ -19,15 +20,14 @@ namespace Model.EF
 
         public int Course { get; set; }
 
-        public int? StudentID { get; set; }
-
         public int Major { get; set; }
 
         public virtual Course Course1 { get; set; }
 
         public virtual Major Major1 { get; set; }
 
-        public virtual Student Student { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Student> Students { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Team> Teams { get; set; }
