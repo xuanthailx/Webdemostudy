@@ -1,0 +1,68 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var matches = (List<Model.ViewModel.MatchViewModel>)ViewBag.Matches;
+}
+@section header{
+    "Matches"
+}
+
+
+@{
+    if ((matches != null) || (matches.Count() > 0))
+    {
+        <table class="table table-striped table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Môn thi</th>
+                    <th>Ngày thi</th>
+                    <th>Giờ thi</th>
+                    <th>
+                        Đội 1
+                    </th>
+                    <th>
+                        Đội 2
+                    </th>
+                    <th>
+                        Tỉ số
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    int no = 1;
+                    string score = "";
+                }
+                @foreach (var item in matches)
+                {
+                    <tr>
+                        <td>
+                            @no
+                        </td>
+                        <td>
+                            @item.Game
+                        </td>
+                        <td>
+                            @item.Date
+                        </td>
+                        <td>
+                            @item.StartTime
+                        </td>
+                        <td>
+                            @item.FirstTeam
+                        </td>
+                        <td>
+                            @item.SecondTeam
+                        </td>
+                        <td>
+                            @{ score = item.FirstTeamScore.ToString() + " - " + item.SecondTeamScore.ToString(); }
+                            @score
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+}
+

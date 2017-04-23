@@ -255,3 +255,7 @@ D:\GITHUB\Webdemostudy\Demostudyweb\Demostudyweb\bin\PagedList.dll
 D:\GITHUB\Webdemostudy\Demostudyweb\Demostudyweb\bin\PagedList.Mvc.dll
 D:\GITHUB\Webdemostudy\Demostudyweb\Demostudyweb\bin\PagedList.xml
 D:\GITHUB\Webdemostudy\Demostudyweb\Demostudyweb\bin\PagedList.Mvc.xml
+D:\Git\Webdemostudy\Demostudyweb\Demostudyweb\bin\PagedList.dll
+D:\Git\Webdemostudy\Demostudyweb\Demostudyweb\bin\PagedList.Mvc.dll
+D:\Git\Webdemostudy\Demostudyweb\Demostudyweb\bin\PagedList.xml
+D:\Git\Webdemostudy\Demostudyweb\Demostudyweb\bin\PagedList.Mvc.xml
