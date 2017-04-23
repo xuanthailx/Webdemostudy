@@ -6,15 +6,16 @@ namespace Model.EF
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Budget
+    public partial class BudgetsDetail
     {
-        [StringLength(200)]
-        public string Description { get; set; }
-
         public int ID { get; set; }
 
-        public int Amount { get; set; }
+        public int? BudgetsID { get; set; }
 
-        public virtual BudgetsDetail BudgetsDetail { get; set; }
+        public int? GameID { get; set; }
+
+        public virtual Budget Budget { get; set; }
+
+        public virtual Game Game { get; set; }
     }
 }

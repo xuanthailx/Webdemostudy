@@ -12,6 +12,8 @@ namespace Model.EF
         {
         }
 
+        public virtual DbSet<Budget> Budgets { get; set; }
+        public virtual DbSet<BudgetsDetail> BudgetsDetails { get; set; }
         public virtual DbSet<Class> Classes { get; set; }
         public virtual DbSet<CostDetail> CostDetails { get; set; }
         public virtual DbSet<Course> Courses { get; set; }
@@ -23,13 +25,16 @@ namespace Model.EF
         public virtual DbSet<Student> Students { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Team> Teams { get; set; }
+        public virtual DbSet<TeamDetail> TeamDetails { get; set; }
         public virtual DbSet<Time> Times { get; set; }
         public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<Budget> Budgets { get; set; }
-        public virtual DbSet<TeamDetail> TeamDetails { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Budget>()
+                .HasOptional(e => e.BudgetsDetail)
+                .WithRequired(e => e.Budget);
+
             modelBuilder.Entity<Course>()
                 .HasMany(e => e.Classes)
                 .WithRequired(e => e.Course1)
@@ -45,11 +50,6 @@ namespace Model.EF
                 .HasMany(e => e.Users)
                 .WithRequired(e => e.Email1)
                 .HasForeignKey(e => e.Email)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Game>()
-                .HasMany(e => e.Budgets)
-                .WithRequired(e => e.Game)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Game>()

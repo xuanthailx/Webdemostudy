@@ -17,7 +17,6 @@ namespace Model.EF
             TeamDetails = new HashSet<TeamDetail>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ID { get; set; }
 
         [StringLength(50)]

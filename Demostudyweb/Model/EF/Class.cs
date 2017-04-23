@@ -22,6 +22,9 @@ namespace Model.EF
 
         public int Major { get; set; }
 
+        [StringLength(100)]
+        public string Name { get; set; }
+
         public virtual Course Course1 { get; set; }
 
         public virtual Major Major1 { get; set; }

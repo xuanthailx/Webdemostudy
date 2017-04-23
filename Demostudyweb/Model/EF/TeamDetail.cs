@@ -9,14 +9,11 @@ namespace Model.EF
     [Table("TeamDetail")]
     public partial class TeamDetail
     {
-        [Key]
-        [Column(Order = 0)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int ID { get; set; }
+
         public int TeamID { get; set; }
 
-        [Key]
-        [Column(Order = 1)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int StudentID { get; set; }
 
         public int? CheckIn { get; set; }

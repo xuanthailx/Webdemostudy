@@ -59,10 +59,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dow\Classdow.cs" />
     <Compile Include="Dow\Emaildow.cs" />
+    <Compile Include="Dow\Gamedow.cs" />
     <Compile Include="Dow\Studentdow.cs" />
+    <Compile Include="Dow\TeamDetaildow.cs" />
+    <Compile Include="Dow\Teamdow.cs" />
     <Compile Include="Dow\Userdow.cs" />
     <Compile Include="EF\Budget.cs" />
+    <Compile Include="EF\BudgetsDetail.cs" />
     <Compile Include="EF\Class.cs" />
     <Compile Include="EF\CostDetail.cs" />
     <Compile Include="EF\Course.cs" />

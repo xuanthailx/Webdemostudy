@@ -25,10 +25,10 @@ D:\GITHUB\Webdemostudy\Demostudyweb\Model\bin\Debug\EntityFramework.dll
 D:\GITHUB\Webdemostudy\Demostudyweb\Model\bin\Debug\EntityFramework.SqlServer.dll
 D:\GITHUB\Webdemostudy\Demostudyweb\Model\bin\Debug\EntityFramework.xml
 D:\GITHUB\Webdemostudy\Demostudyweb\Model\bin\Debug\EntityFramework.SqlServer.xml
-D:\GITHUB\Webdemostudy\Demostudyweb\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
 D:\GITHUB\Webdemostudy\Demostudyweb\Model\obj\Debug\Model.dll
 D:\GITHUB\Webdemostudy\Demostudyweb\Model\obj\Debug\Model.pdb
 D:\GITHUB\Webdemostudy\Demostudyweb\Model\bin\Debug\PagedList.dll
 D:\GITHUB\Webdemostudy\Demostudyweb\Model\bin\Debug\PagedList.Mvc.dll
 D:\GITHUB\Webdemostudy\Demostudyweb\Model\bin\Debug\PagedList.xml
 D:\GITHUB\Webdemostudy\Demostudyweb\Model\bin\Debug\PagedList.Mvc.xml
+D:\GITHUB\Webdemostudy\Demostudyweb\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
