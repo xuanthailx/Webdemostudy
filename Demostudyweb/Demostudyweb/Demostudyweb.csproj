@@ -212,8 +212,11 @@
     <Compile Include="Areas\Admin\Models\LoginModel.cs" />
     <Compile Include="Common\Commoncontent.cs" />
     <Compile Include="Common\Encryptor.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MatchController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
+    <Compile Include="Controllers\TeamController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -270,6 +273,9 @@
     <Content Include="Views\Shared\_Menu.cshtml" />
     <Content Include="Views\Shared\_Header.cshtml" />
     <Content Include="Views\Student\Index.cshtml" />
+    <Content Include="Views\Team\Index.cshtml" />
+    <Content Include="Views\Team\Create.cshtml" />
+    <Content Include="Views\Match\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -282,6 +288,7 @@
     <Folder Include="assets\admin\pages\" />
     <Folder Include="assets\admin\vendors\" />
     <Folder Include="assets\client\" />
+    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

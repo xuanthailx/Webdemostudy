@@ -15,9 +15,11 @@ namespace Model.EF
             MatchUps = new HashSet<MatchUp>();
         }
 
-        [Key]
-        [Column("Time")]
-        public TimeSpan Time1 { get; set; }
+        public int? ToHour { get; set; }
+
+        public int? FromHour { get; set; }
+
+        public int ID { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MatchUp> MatchUps { get; set; }

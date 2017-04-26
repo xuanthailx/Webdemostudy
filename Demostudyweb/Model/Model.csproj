@@ -59,10 +59,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dow\Classdow.cs" />
     <Compile Include="Dow\Emaildow.cs" />
+    <Compile Include="Dow\Gamedow.cs" />
+    <Compile Include="Dow\MatchDao.cs" />
     <Compile Include="Dow\Studentdow.cs" />
+    <Compile Include="Dow\TeamDetaildow.cs" />
+    <Compile Include="Dow\Teamdow.cs" />
     <Compile Include="Dow\Userdow.cs" />
     <Compile Include="EF\Budget.cs" />
+    <Compile Include="EF\BudgetsDetail.cs" />
     <Compile Include="EF\Class.cs" />
     <Compile Include="EF\CostDetail.cs" />
     <Compile Include="EF\Course.cs" />
@@ -72,13 +78,14 @@
     <Compile Include="EF\Major.cs" />
     <Compile Include="EF\MatchUp.cs" />
     <Compile Include="EF\OnLinewebDbContext.cs" />
-    <Compile Include="EF\Participate.cs" />
     <Compile Include="EF\Student.cs" />
     <Compile Include="EF\sysdiagram.cs" />
     <Compile Include="EF\Team.cs" />
+    <Compile Include="EF\TeamDetail.cs" />
     <Compile Include="EF\Time.cs" />
     <Compile Include="EF\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\MatchViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -12,6 +12,8 @@ namespace Model.EF
         {
         }
 
+        public virtual DbSet<Budget> Budgets { get; set; }
+        public virtual DbSet<BudgetsDetail> BudgetsDetails { get; set; }
         public virtual DbSet<Class> Classes { get; set; }
         public virtual DbSet<CostDetail> CostDetails { get; set; }
         public virtual DbSet<Course> Courses { get; set; }
@@ -23,13 +25,16 @@ namespace Model.EF
         public virtual DbSet<Student> Students { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Team> Teams { get; set; }
+        public virtual DbSet<TeamDetail> TeamDetails { get; set; }
         public virtual DbSet<Time> Times { get; set; }
         public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<Budget> Budgets { get; set; }
-        public virtual DbSet<Participate> Participates { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Budget>()
+                .HasOptional(e => e.BudgetsDetail)
+                .WithRequired(e => e.Budget);
+
             modelBuilder.Entity<Course>()
                 .HasMany(e => e.Classes)
                 .WithRequired(e => e.Course1)
@@ -48,8 +53,13 @@ namespace Model.EF
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Game>()
-                .HasMany(e => e.Participates)
+                .HasMany(e => e.MatchUps)
                 .WithRequired(e => e.Game)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Location>()
+                .HasMany(e => e.MatchUps)
+                .WithRequired(e => e.Location)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Major>()
@@ -58,27 +68,29 @@ namespace Model.EF
                 .HasForeignKey(e => e.Major)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<MatchUp>()
-                .Property(e => e.Time)
-                .HasPrecision(0);
-
             modelBuilder.Entity<Student>()
-                .Property(e => e.CheckIn)
-                .IsFixedLength();
-
-            modelBuilder.Entity<Student>()
-                .HasMany(e => e.Participates)
+                .HasMany(e => e.TeamDetails)
                 .WithRequired(e => e.Student)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Time>()
-                .Property(e => e.Time1)
-                .HasPrecision(0);
+            modelBuilder.Entity<Team>()
+                .HasMany(e => e.MatchUps)
+                .WithOptional(e => e.Team)
+                .HasForeignKey(e => e.Team1);
+
+            modelBuilder.Entity<Team>()
+                .HasMany(e => e.MatchUps1)
+                .WithOptional(e => e.Team3)
+                .HasForeignKey(e => e.Team2);
+
+            modelBuilder.Entity<Team>()
+                .HasMany(e => e.TeamDetails)
+                .WithRequired(e => e.Team)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Time>()
                 .HasMany(e => e.MatchUps)
-                .WithRequired(e => e.Time1)
-                .HasForeignKey(e => e.Time)
+                .WithRequired(e => e.Time)
                 .WillCascadeOnDelete(false);
         }
     }
