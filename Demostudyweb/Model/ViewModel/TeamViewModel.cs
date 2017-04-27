@@ -10,7 +10,7 @@ namespace Model.ViewModel
     {
         public int ID { get; set; }
 
-        public String TeamName { get; set; }
+        public string TeamName { get; set; }
 
         public string StudentName { get; set; }
         public string StudentEmail { get; set; }

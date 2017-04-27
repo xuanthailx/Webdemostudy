@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PagedList;
 
 namespace Model.Dow
 {
@@ -60,18 +61,22 @@ namespace Model.Dow
         public IEnumerable<TeamViewModel> ListByID(string searchString,int? id, ref int totalRecord, int PageIndex, int pageSize)
         {
             totalRecord = db.TeamDetails.Where(x => x.ID == id).Count();
-           var  model = from a in db.Teams                       
+            var model = from a in db.Teams
                         join c in db.TeamDetails
                         on a.ID equals c.TeamID
                         join d in db.Students
                         on c.StudentID equals d.ID
+                        join b in db.Games
+                        on a.GameID equals b.ID
                         where a.Name == searchString
                         select new TeamViewModel()
                         {
                             ID = c.ID,
                             TeamName = a.Name,
-                            StudentName = d.LastName,                            
-                            Checkin = c.CheckIn
+                            StudentName = d.LastName,
+                            Checkin = c.CheckIn,
+                            StudentEmail = d.Email,
+                            GameName = b.Name
                         };
             if (!string.IsNullOrEmpty(searchString))
             {
