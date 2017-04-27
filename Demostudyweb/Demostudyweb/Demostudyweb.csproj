@@ -217,6 +217,7 @@
     <Compile Include="Controllers\MatchController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\TeamController.cs" />
+    <Compile Include="Controllers\TeamDetailController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -276,6 +277,9 @@
     <Content Include="Views\Team\Index.cshtml" />
     <Content Include="Views\Team\Create.cshtml" />
     <Content Include="Views\Match\Index.cshtml" />
+    <Content Include="Views\TeamDetail\Index.cshtml" />
+    <Content Include="Views\TeamDetail\Create.cshtml" />
+    <Content Include="Views\TeamDetail\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
