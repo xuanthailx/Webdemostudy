@@ -72,5 +72,9 @@ namespace Model.Dow
                 return false;
             }
         }
+        public List<Team> ListAll()
+        {
+            return db.Teams.ToList();
+        }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Model.EF;
+using Model.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,10 +8,8 @@ using System.Threading.Tasks;
 
 namespace Model.Dow
 {
-    class TeamDetaildow
+    public class TeamDetaildow
     {
-<<<<<<< HEAD
-=======
         OnLinewebDbContext db = null;
         public TeamDetaildow()
         {
@@ -104,6 +104,5 @@ namespace Model.Dow
                 return false;
             }
         }
->>>>>>> parent of c6d1d5d... 25/4
     }
 }

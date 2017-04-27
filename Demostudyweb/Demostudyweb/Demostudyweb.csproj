@@ -217,10 +217,7 @@
     <Compile Include="Controllers\MatchController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\TeamController.cs" />
-<<<<<<< HEAD
-=======
     <Compile Include="Controllers\TeamDetailController.cs" />
->>>>>>> parent of c6d1d5d... 25/4
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -279,13 +276,10 @@
     <Content Include="Views\Student\Index.cshtml" />
     <Content Include="Views\Team\Index.cshtml" />
     <Content Include="Views\Team\Create.cshtml" />
-<<<<<<< HEAD
     <Content Include="Views\Match\Index.cshtml" />
-=======
     <Content Include="Views\TeamDetail\Index.cshtml" />
     <Content Include="Views\TeamDetail\Create.cshtml" />
     <Content Include="Views\TeamDetail\Detail.cshtml" />
->>>>>>> parent of c6d1d5d... 25/4
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

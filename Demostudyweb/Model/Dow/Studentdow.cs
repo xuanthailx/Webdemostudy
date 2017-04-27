@@ -77,6 +77,10 @@ namespace Model.Dow
                 return false;
             }
         }
+        public List<Student> ListAll()
+        {
+            return db.Students.ToList();
+        }
 
     }
 
