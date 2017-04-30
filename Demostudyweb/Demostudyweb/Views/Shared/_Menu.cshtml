@@ -4,7 +4,7 @@
             <!-- Main menu -->
             <li class="current"><a href="/Admin/Home/Index.html"><i class="glyphicon glyphicon-home"></i> Trang chủ</a></li>
             <li><a href="/Team/Index"><i class="glyphicon glyphicon-calendar"></i> Quản lí Đội tham gia</a></li>
-            <li><a href="/TeamDetail/Index"><i class="glyphicon glyphicon-stats"></i>Quản lí thành viên đội</a></li>
+            <li><a href="/TeamDetail/Detail"><i class="glyphicon glyphicon-stats"></i>Quản lí thành viên đội</a></li>
             <li><a href="tables.html"><i class="glyphicon glyphicon-list"></i> Tables</a></li>
             <li><a href="buttons.html"><i class="glyphicon glyphicon-record"></i> Buttons</a></li>
             <li><a href="editors.html"><i class="glyphicon glyphicon-pencil"></i> Editors</a></li>
@@ -15,10 +15,25 @@
                     <span class="caret pull-right"></span>
                 </a>
                 <!-- Sub menu -->
-                <ul>
-                    <li><a href="login.html">Login</a></li>
-                    <li><a href="signup.html">Signup</a></li>
-                </ul>
+                @{
+                    var session = (UserLogin)Session[Demostudyweb.Common.Commoncontent.USER_SESSION];
+                        }
+                @if (session == null)
+                {
+                    <ul>
+                        <li><a href="/dang-nhap" target="_self">Login</a></li>                        
+                    </ul>
+                }
+                else
+                {
+                    <ul>
+                        <li>
+                            Xin chào : @session.UserName
+                          
+                        </li>
+                    </ul>
+                }
+
             </li>
         </ul>
     </div>

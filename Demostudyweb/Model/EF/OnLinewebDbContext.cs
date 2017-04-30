@@ -8,7 +8,7 @@ namespace Model.EF
     public partial class OnLinewebDbContext : DbContext
     {
         public OnLinewebDbContext()
-            : base("name=OnLinewebDbContext")
+            : base("name=OnLinewebDbContext1")
         {
         }
 
@@ -93,5 +93,7 @@ namespace Model.EF
                 .WithRequired(e => e.Time)
                 .WillCascadeOnDelete(false);
         }
+
+
     }
 }

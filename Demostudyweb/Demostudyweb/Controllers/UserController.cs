@@ -1,5 +1,5 @@
-﻿using Demostudyweb.Areas.Admin.Models;
-using Demostudyweb.Common;
+﻿using Demostudyweb.Common;
+using Demostudyweb.Models;
 using model.Dow;
 using System;
 using System.Collections.Generic;
@@ -7,33 +7,38 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Demostudyweb.Areas.Admin.Controllers
+namespace Demostudyweb.Controllers
 {
-    public class LoginController : Controller
+    public class UserController : Controller
     {
-        public string USER { get; private set; }
-
-        // GET: Admin/Login
+        // GET: User
         public ActionResult Index()
         {
             return View();
         }
-        public ActionResult Login(LoginModel model) {
+        [HttpGet]
+        public ActionResult Login()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Login(LoginModels model)
+        {
             if (ModelState.IsValid)
             {
                 var dow = new Userdow();
-                var result = dow.login(model.eMail, Encryptor.MD5Hash(model.PassWord));
-                if (result == 3)
+                var result = dow.login(model.UserName, Encryptor.MD5Hash(model.Password));
+                if (result == 4 || result == 3)
                 {
-                    var user = dow.GetByID(model.eMail);
+                    var user = dow.GetByID(model.UserName);
                     var userSession = new UserLogin();
                     userSession.UserName = user.Email;
                     userSession.UserID = user.ID;
                     userSession.UserRole = user.Role;
-                    Session.Add(Commoncontent.USER_SESSION , userSession);
-                    return RedirectToAction("Index", "Home");
+                    Session.Add(Commoncontent.USER_SESSION, userSession);
+                    return RedirectToAction("Detail","TeamDetail");
                 }
-                else if(result == 0)
+                else if (result == 0)
                 {
                     ModelState.AddModelError("", "Tài khoản không tồn tại");
                 }
@@ -54,8 +59,10 @@ namespace Demostudyweb.Areas.Admin.Controllers
                     ModelState.AddModelError("", "Đăng nhập không đúng");
                 }
             }
-            return View("Index");
-        }
-           
+            return View(model);
+        }   
+        
+
     }
+
 }

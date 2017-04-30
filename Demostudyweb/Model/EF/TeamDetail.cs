@@ -9,14 +9,13 @@ namespace Model.EF
     [Table("TeamDetail")]
     public partial class TeamDetail
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ID { get; set; }
 
         public int TeamID { get; set; }
 
         public int StudentID { get; set; }
 
-        public int? CheckIn { get; set; }
+        public int CheckIn { get; set; }
 
         public virtual Student Student { get; set; }
 

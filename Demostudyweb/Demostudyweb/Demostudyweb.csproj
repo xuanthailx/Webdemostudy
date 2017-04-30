@@ -218,11 +218,13 @@
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\TeamController.cs" />
     <Compile Include="Controllers\TeamDetailController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\LoginModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -230,6 +232,7 @@
     <Compile Include="Common\UserLogin.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\admin\js\controller\TeamDetailController.js" />
     <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -277,9 +280,10 @@
     <Content Include="Views\Team\Index.cshtml" />
     <Content Include="Views\Team\Create.cshtml" />
     <Content Include="Views\Match\Index.cshtml" />
-    <Content Include="Views\TeamDetail\Index.cshtml" />
     <Content Include="Views\TeamDetail\Create.cshtml" />
     <Content Include="Views\TeamDetail\Detail.cshtml" />
+    <Content Include="Views\TeamDetail\Index.cshtml" />
+    <Content Include="Views\User\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -288,7 +292,6 @@
     <Folder Include="assets\admin\bootstrap\" />
     <Folder Include="assets\admin\css\" />
     <Folder Include="assets\admin\images\" />
-    <Folder Include="assets\admin\js\" />
     <Folder Include="assets\admin\pages\" />
     <Folder Include="assets\admin\vendors\" />
     <Folder Include="assets\client\" />
@@ -324,9 +327,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>53994</DevelopmentServerPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:53994/</IISUrl>
+          <IISUrl>http://localhost:58250/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

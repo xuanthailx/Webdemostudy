@@ -18,8 +18,7 @@ namespace Model.EF
         [StringLength(1)]
         public string Role { get; set; }
 
-        [StringLength(1)]
-        public string Status { get; set; }
+        public int? Status { get; set; }
 
         public long ID { get; set; }
 

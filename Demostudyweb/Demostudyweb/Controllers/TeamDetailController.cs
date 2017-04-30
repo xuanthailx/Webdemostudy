@@ -21,10 +21,10 @@ namespace Demostudyweb.Controllers
             ViewBag.SearchString = searchString;
             return View(model);
         }
-        public ActionResult Detail(string searchString,int? id, int PageIndex = 1, int pageSize = 5)
+        public ActionResult Detail(string searchString, int? id, int PageIndex = 1, int pageSize = 5)
         {
             var dao = new TeamDetaildow();
-            int totalRecord = 0;            
+            int totalRecord = 0;
             var model = dao.ListByID(searchString, id, ref totalRecord, PageIndex, pageSize);
             ViewBag.SearchString = searchString;
             ViewBag.Total = totalRecord;
@@ -89,14 +89,27 @@ namespace Demostudyweb.Controllers
             return RedirectToAction("Index");
 
         }
-        public void SetViewBag(int selectedemail = 0,int selectedteam = 0)
+        public void SetViewBag(int selectedemail = 0, int selectedteam = 0)
         {
 
-            
+
             var dao = new Studentdow();
             ViewBag.StudentID = new SelectList(dao.ListAll(), "ID", "Email", selectedemail);
             var dao1 = new Teamdow();
             ViewBag.TeamID = new SelectList(dao1.ListAll(), "ID", "Name", selectedteam);
+        }
+
+        [HttpPost]
+        public JsonResult ChangeCheckin(int id)
+
+        {
+            var result = new TeamDetaildow().ChangeCheckin(id);
+            return Json(new
+            {
+                Checkin = result
+            });
+
+
         }
     }
 }

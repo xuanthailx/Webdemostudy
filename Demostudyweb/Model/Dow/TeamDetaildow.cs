@@ -63,12 +63,11 @@ namespace Model.Dow
             totalRecord = db.TeamDetails.Where(x => x.ID == id).Count();
             var model = from a in db.Teams
                         join c in db.TeamDetails
-                        on a.ID equals c.TeamID
-                        join d in db.Students
-                        on c.StudentID equals d.ID
+                        on a.ID equals c.TeamID                       
                         join b in db.Games
                         on a.GameID equals b.ID
-                        where a.Name == searchString
+                        join d in db.Students
+                        on c.StudentID equals d.ID                        
                         select new TeamViewModel()
                         {
                             ID = c.ID,
@@ -108,6 +107,24 @@ namespace Model.Dow
             {
                 return false;
             }
+        }
+        public int ChangeCheckin(int id)
+        {
+            var teamdetail = db.TeamDetails.Find(id);
+            if (teamdetail.CheckIn == 0)
+            {
+                 teamdetail.CheckIn = 1;
+            }
+            else {
+                teamdetail.CheckIn = 0;
+
+            }
+            db.SaveChanges();
+            return teamdetail.CheckIn;
+
+
+
+
         }
     }
 }
