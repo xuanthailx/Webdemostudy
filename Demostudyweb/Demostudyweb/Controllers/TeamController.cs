@@ -28,7 +28,8 @@ namespace Demostudyweb.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            var team = new Teamdow().ViewDetail(id);
+            var team = new Teamdow().GetByID(id);
+            SetViewBag(team.ID);
             return View(team);
         }
         [HttpPost]

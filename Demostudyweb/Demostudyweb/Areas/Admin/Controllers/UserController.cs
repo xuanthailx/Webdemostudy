@@ -52,7 +52,7 @@ namespace Demostudyweb.Areas.Admin.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Thêm user thành công");
+                    ModelState.AddModelError("", "Thêm user không thành công");
                 }
             }
             SetViewBag();

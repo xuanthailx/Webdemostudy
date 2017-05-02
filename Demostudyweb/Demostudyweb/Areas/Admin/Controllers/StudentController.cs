@@ -1,18 +1,19 @@
-﻿using System;
+﻿using Model.Dow;
+using Model.EF;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using model.Dow;
-using Model.Dow;
-using Model.EF;
-namespace Demostudyweb.Controllers
+
+namespace Demostudyweb.Areas.Admin.Controllers
 {
     public class StudentController : BaseController
     {
-        // GET: Student
+        // GET: Admin/Student
         public ActionResult Index(string searchString, int page = 1, int pageSize = 2)
         {
+
             var dao = new Studentdow();
             var model = dao.ListAllPaging(searchString, page, pageSize);
             ViewBag.SearchString = searchString;
@@ -27,9 +28,7 @@ namespace Demostudyweb.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
-                     
-            var student = new Studentdow().GetByID(id);
-            SetViewBag(student.ID);
+            var student = new Studentdow().ViewDetail(id);
             return View(student);
         }
         [HttpPost]
@@ -37,7 +36,7 @@ namespace Demostudyweb.Controllers
         {
             if (ModelState.IsValid)
             {
-                var dao = new Studentdow();
+                var dao = new Studentdow();               
                 long id = dao.Insert(student);
                 if (id > 0)
                 {
@@ -50,7 +49,7 @@ namespace Demostudyweb.Controllers
                 }
             }
             SetViewBag();
-            return View("Create");
+            return View("Index");
 
         }
         [HttpPost]
@@ -58,7 +57,7 @@ namespace Demostudyweb.Controllers
         {
             if (ModelState.IsValid)
             {
-                var dao = new Studentdow();
+                var dao = new Studentdow();               
                 var result = dao.Update(student);
                 if (result)
                 {
@@ -73,14 +72,16 @@ namespace Demostudyweb.Controllers
             return View("Index");
 
         }
-        public void SetViewBag(int selectedclass = 0,string selectedemail = null)
+        public ActionResult Delete(int id)
         {
-           
-            var dao1 = new Classdow();
-            ViewBag.ClassID = new SelectList(dao1.ListAll(), "ID", "Name", selectedclass);
+            new Studentdow().Delete(id);
+            return RedirectToAction("Index");
+
+        }
+        public void SetViewBag(string selectedemail = null)
+        {
             var dao = new Emaildow();
             ViewBag.Email = new SelectList(dao.ListAll(), "Email1", "Email1", selectedemail);
         }
-
     }
 }

@@ -1,19 +1,18 @@
-﻿
-@model PagedList.IPagedList<Model.EF.Student>
+﻿@model PagedList.IPagedList<Model.EF.Game>
 @using PagedList.Mvc;
 @{
-    ViewBag.Title = "Quản lí thông tin sinh viên";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layouts.cshtml";
 }
 
 @section header{
-    Đăng kí Sinh viên
-}
+    Quản lí Môn thi đấu
+    }
 <div class="row">
     <div class="col-md-12">
         <div class="content-box-large">
             <div class="panel-heading">
-                <div class="panel-title"> Dánh sách Sinh Viên</div>
+                <div class="panel-title"> Danh sách môn thi đấu</div>
 
                 <div class="panel-options">
                     <a href="#" data-rel="collapse"><i class="glyphicon glyphicon-refresh"></i></a>
@@ -22,7 +21,7 @@
             </div>
             <div class="panel-body">
                 <div class="col-md-12">
-                    @using (Html.BeginForm("Index", "Student", FormMethod.Get))
+                    @using (Html.BeginForm("Index", "Game", FormMethod.Get))
                     {
                         <div class="row form-group">
                             <div class="col-md-10">
@@ -32,23 +31,22 @@
                                     </div>
                                     <div class="col-md-5">
                                         <button class="btn btn-success" type="submit">Tìm kiếm</button>
-                                        <a type="button" class="btn btn-primary" href="/Student/Create">Thêm mới</a>
+                                        <a type="button" class="btn btn-primary" href="/Admin/Game/Create">Thêm mới</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
                     }
                     <div>
                         <table class="table table-striped table-bordered table-hover">
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>LastName</th>
-                                    <th>DateOfBirth</th>
-                                    <th>Gender</th>
-                                    <th>Email</th>
-                                    <th>Class</th>
+                                    <th>Name</th>
+                                    <th>Type</th>
+                                    <th>MaxPeople</th>
+                                    <th>Duration</th>
+                                    <th>Champion</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -56,14 +54,20 @@
                                 {
                                     <tr id="row_@item.ID">
                                         <td>
-                                            <a href="/Student/Edit/@item.ID">Sửa</a>
-                                           
+                                            <a href="/Admin/Game/Edit/@item.ID">Sửa</a>
+                                            @Ajax.ActionLink("Xóa", "Delete", new { @id = item.ID }, new AjaxOptions
+                                       {
+                                           Confirm = "Bạn có muốn xóa bản ghi này không ?",
+                                           OnComplete = "$('row_" + @item.ID + "').remove()",
+                                           HttpMethod = "Delete"
+
+                                       })
                                         </td>
-                                        <td>@item.LastName</td>
-                                        <td>@item.DateOfBirth</td>
-                                        <td>@((item.Gender == 1) ? "Nam" : "Nữ")</td>
-                                        <td>@item.Email</td>
-                                        <td>@item.ClassID</td>
+                                        <td>@item.Name</td>
+                                        <td>@item.Type</td>
+                                        <td>@item.MaxPeopleAllowed</td>
+                                        <td>@item.Duration</td>
+                                        <td>@item.Champion</td>
                                     </tr>
                                 }
                             </tbody>

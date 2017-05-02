@@ -21,6 +21,11 @@ namespace Demostudyweb.Controllers
         {
             return View();
         }
+        public ActionResult Logout()
+        {
+            Session[Commoncontent.USER_SESSION] = null;
+            return Redirect("/");
+        }
         [HttpPost]
         public ActionResult Login(LoginModels model)
         {

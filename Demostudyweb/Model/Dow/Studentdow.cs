@@ -26,6 +26,11 @@ namespace Model.Dow
             try
             {
                 var student = db.Students.Find(entity.ID);
+                student.LastName = entity.LastName;
+                student.DateOfBirth = entity.DateOfBirth;
+                student.Gender = entity.Gender;
+                student.Email = entity.Email;
+                student.ClassID = entity.ClassID;
                 //student.Email = entity.Email;
                 //if (!String.IsNullOrEmpty(entity.Password))
                 //{

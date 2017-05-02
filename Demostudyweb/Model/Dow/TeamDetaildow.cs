@@ -60,7 +60,7 @@ namespace Model.Dow
         }
         public IEnumerable<TeamViewModel> ListByID(string searchString,int? id, ref int totalRecord, int PageIndex, int pageSize)
         {
-            totalRecord = db.TeamDetails.Where(x => x.ID == id).Count();
+           
             var model = from a in db.Teams
                         join c in db.TeamDetails
                         on a.ID equals c.TeamID                       
@@ -90,7 +90,7 @@ namespace Model.Dow
             //    GameName = x.GameName,
             //    Checkin = x.Checkin
             //});
-
+            totalRecord = model.Where(x => x.TeamName.Contains(searchString)).Count();
             return model.OrderByDescending(x=>x.ID).ToPagedList(PageIndex,pageSize);
             
         }
